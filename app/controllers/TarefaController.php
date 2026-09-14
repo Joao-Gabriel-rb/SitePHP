@@ -1,6 +1,11 @@
 <?php
 
 require_once __DIR__ . "/../models/Tarefa.php";
+require_once __DIR__ . "/../factories/TarefaFactory.php";
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 class TarefaController
 {
@@ -8,7 +13,7 @@ class TarefaController
 
     public function __construct()
     {
-        $this->tarefaModel = new Tarefa();
+        $this->tarefaModel = TarefaFactory::criar();
     }
 
     public function cadastrar($titulo, $descricao)
@@ -120,7 +125,6 @@ class TarefaController
         ];
     }
 }
-
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
