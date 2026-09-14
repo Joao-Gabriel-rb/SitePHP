@@ -32,15 +32,19 @@ $tarefas = $controller->listar();
         <?php echo htmlspecialchars($_SESSION["usuario_nome"]); ?>!
     </h2>
 
-    <p>
-        Aqui estão suas tarefas:
-    </p>
-
     <a href="../tarefas/criar.php">
         + Adicionar tarefa
     </a>
 
+    &nbsp;
+
+    <a href="../../controllers/LogoutController.php">
+        Sair
+    </a>
+
     <hr>
+
+    <h2>Minhas tarefas</h2>
 
     <?php if (empty($tarefas)): ?>
 
